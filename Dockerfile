@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER The CentOS Project <cloud-ops@centos.org>
+MAINTAINER Myself <myself@example.com>
 
 RUN yum -y  install httpd && \
     yum clean all
@@ -13,4 +13,6 @@ ADD httpd.conf /etc/httpd/conf/
 ADD run-httpd.sh /run-httpd.sh
 RUN chmod -v +x /run-httpd.sh
 
-CMD ["/run-httpd.sh"]
+#CMD ["/run-httpd.sh"]
+
+CMD /usr/sbin/apachectl -D FOREGROUND
